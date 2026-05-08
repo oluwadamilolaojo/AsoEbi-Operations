@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy:      #1A3C5E;
+  --navy-light: #D6E4F0;
+  --gold:      #C9A84C;
+  --gold-light: #FDF6E3;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { @apply antialiased; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-navy-700 hover:bg-navy-800 text-white font-body font-medium
+           px-5 py-2.5 rounded-lg transition-all duration-200
+           shadow-sm hover:shadow-luxury text-sm;
+  }
+  .btn-ghost {
+    @apply border border-navy-200 text-navy-700 hover:bg-navy-50
+           font-body font-medium px-5 py-2.5 rounded-lg transition-all duration-200 text-sm;
+  }
+  .btn-gold {
+    @apply bg-gold-500 hover:bg-gold-600 text-white font-body font-medium
+           px-5 py-2.5 rounded-lg transition-all duration-200 shadow-sm text-sm;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-luxury border border-navy-100;
+  }
+  .input {
+    @apply w-full border border-navy-200 rounded-lg px-3 py-2 text-sm
+           text-navy-800 placeholder-navy-300 focus:outline-none
+           focus:ring-2 focus:ring-gold-400 focus:border-transparent
+           transition-all duration-150;
+  }
+  .label {
+    @apply block text-xs font-medium text-navy-500 mb-1 uppercase tracking-wide;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #93afc8; border-radius: 3px; }
+
+/* Table hover */
+.table-row-hover:hover { background-color: #f8fafc; }
+
+/* Animated underline for nav */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after { width: 100%; }
